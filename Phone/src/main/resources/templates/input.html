@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert or Edit Contact</title>
+</head>
+<body>
+<form th:object="${newPhone}" th:action="@{/update/{id}(id=${newPhone.id})}" method="POST">
+Model: <input name="model" size="20" th:field="*{model}"><br/>
+Resolution: <input name="resolution" size="	10" th:field="*{resolution}"><br/>
+Processer: <input name="processer" size="20" th:field="*{processer}"><br/>
+Storage Size: <input name="storageSize" size="20" th:field="*{storageSize}"><br/>
+Number Of Cameras: <input name="numberOfCameras" size="20" th:field="*{numberOfCameras}"><br/>
+<input name="submit" type="submit" value="submit"/>
+</form>
+<a href="../viewAll">View all Phones</a>
+</body>
+</html>

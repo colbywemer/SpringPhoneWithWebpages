@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Phones</title>
+<style>
+table, th, td {
+  border:1px solid black;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+<form>
+<table>
+<tr>
+<td>Id</td>
+<td>Model</td>
+<td>Resolution</td>
+<td>Processer</td>
+<td>Storage Size</td>
+<td># Of Cameras</td>
+<td>Edit</td>
+<td>Delete</td>
+</tr>
+<tr th:each="currentPhone : ${phones}">
+<td th:text="${currentPhone.id}" />
+<td th:text="${currentPhone.model}" />
+<td th:text="${currentPhone.resolution}" />
+<td th:text="${currentPhone.processer}" />
+<td th:text="${currentPhone.storageSize}" />
+<td th:text="${currentPhone.numberOfCameras}" />
+<td><a th:href="@{/edit/{id}(id=${currentPhone.id})}">Edit</a></td>
+<td><a th:href="@{/delete/{id}(id=${currentPhone.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+<a href="../inputPhone">Add a new phone</a>
+</body>
+</html>
